@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>YatraSutra - Smart Travel Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+        <div class="brand-logo"><i class="fa-solid fa-mountain-sun"></i></div>
+        <div class="brand-text">
+            <h2>YatraSutra</h2>
+            <p>Explore • Experience • Connect</p>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+            <a href="dashboard.html" class="active"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="../My trip/my-trips.html"><i class="fa-solid fa-suitcase-rolling"></i><span>My Trips</span></a>
+            <a href="../saved-destinations/saved-destinations.html"><i class="fa-regular fa-bookmark"></i><span>Saved Destinations</span></a>
+            <a href="../Bookings/bookings.html"><i class="fa-regular fa-calendar-check"></i><span>Bookings</span></a>
+            <a href="../Cultural/cultural.html"><i class="fa-solid fa-masks-theater"></i><span>Explore Culture</span></a>
+        </nav>
+
+    <div class="sidebar-bottom">
+        <p>"Not just trips,<br>but memories<br>for a lifetime."</p>
+        <i class="fa-solid fa-plane"></i>
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <button class="mobile-menu" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="topbar-brand">
+            <div class="brand-logo">
+                <i class="fa-solid fa-mountain-sun"></i>
+            </div>
+
+            <strong>YatraSutra</strong>
+        </div>
+
+        <div class="top-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search destinations, experiences, hotels..."
+            >
+        </div>
+
+        <div class="top-right">
+
+            <button class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <span></span>
+            </button>
+
+            <div class="user-profile">
+
+                <img
+                    src="https://i.pravatar.cc/100?img=47"
+                    alt="Priya"
+                >
+
+                <div>
+                    <strong>Priya Sharma</strong>
+                    <small>Tourist</small>
+                </div>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <div class="content">
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-info">
+
+                <span class="destination-tag">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Your Next Destination
+                </span>
+
+                <h1>Goa</h1>
+
+                <div class="trip-meta">
+
+                    <span>
+                        <i class="fa-regular fa-calendar"></i>
+                        15 Apr 2025 - 18 Apr 2025
+                    </span>
+
+                    <span>3 Days</span>
+
+                    <span>₹15,000 approx.</span>
+
+                </div>
+
+                <p>
+                    Discover the perfect blend of beaches, culture
+                    and local experiences — curated just for you.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= DESTINATION INTELLIGENCE ================= -->
+
+        <section class="intelligence">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        <i class="fa-solid fa-chart-simple"></i>
+                        Destination Intelligence
+
+                        <span class="ai-badge">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            AI Powered
+                        </span>
+                    </h2>
+
+                    <p>
+                        Real-time insights to help you plan a better trip.
+                    </p>
+
+                </div>
+
+                <button class="report-btn">
+                    View Full Report
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+
+            <div class="intelligence-grid">
+
+
+                <!-- WEATHER -->
+
+                <div class="intel-card weather-card">
+
+                    <div class="intel-title">
+
+                        <div class="intel-icon weather-icon">
+                            <i class="fa-solid fa-sun"></i>
+                        </div>
+
+                        <div>
+                            <h3>Weather</h3>
+                            <p>Live conditions</p>
+                        </div>
+
+                    </div>
+
+                    <div class="temperature">
+                        29°C
+                    </div>
+
+                    <strong>Sunny</strong>
+
+                    <p class="weather-description">
+                        <i class="fa-solid fa-wind"></i>
+                        Light breeze
+                    </p>
+
+                    <hr>
+
+                    <div class="weather-details">
+
+                        <div>
+                            <span>Humidity</span>
+                            <b>68%</b>
+                        </div>
+
+                        <div>
+                            <span>Wind Speed</span>
+                            <b>14 km/h</b>
+                        </div>
+
+                        <div>
+                            <span>Rain Chance</span>
+                            <b>20%</b>
+                        </div>
+
+                    </div>
+
+                    <div class="good-condition">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Good for outdoor activities
+                    </div>
+
+                </div>
+
+
+                <!-- CROWD -->
+
+                <div class="intel-card crowd-card">
+
+                    <div class="intel-title">
+
+                        <div class="intel-icon crowd-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <div>
+                            <h3>Crowd Level</h3>
+                            <p>AI prediction</p>
+                        </div>
+
+                    </div>
+
+                    <div class="crowd-main">
+                        <strong>Moderate</strong>
+                        <span>62%</span>
+                    </div>
+
+                    <div class="crowd-list">
+
+                        <div>
+                            <span>
+                                <i class="fa-solid fa-circle"></i>
+                                Morning
+                            </span>
+
+                            <b class="low">Low</b>
+                        </div>
+
+                        <div>
+                            <span>
+                                <i class="fa-solid fa-circle"></i>
+                                Afternoon
+                            </span>
+
+                            <b class="moderate">Moderate</b>
+                        </div>
+
+                        <div>
+                            <span>
+                                <i class="fa-solid fa-circle"></i>
+                                Evening
+                            </span>
+
+                            <b class="high">High</b>
+                        </div>
+
+                    </div>
+
+                    <div class="best-time">
+                        <i class="fa-regular fa-clock"></i>
+                        Best time: 8 AM – 11 AM
+                    </div>
+
+                </div>
+
+
+                <!-- LESSER KNOWN -->
+
+                <div class="intel-card hidden-card">
+
+                    <div class="intel-title">
+
+                        <div class="intel-icon hidden-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <div>
+                            <h3>Lesser-Known Destinations</h3>
+                            <p>3 hidden gems nearby</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="hidden-place">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=200&q=80"
+                            alt="Morjim"
+                        >
+
+                        <div>
+                            <strong>Morjim Beach</strong>
+                            <small>18 km • Low Crowd</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="hidden-place">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=200&q=80"
+                            alt="Island"
+                        >
+
+                        <div>
+                            <strong>Divar Island</strong>
+                            <small>32 km • Low Crowd</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="hidden-place">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=200&q=80"
+                            alt="Chorla"
+                        >
+
+                        <div>
+                            <strong>Chorla Ghat</strong>
+                            <small>60 km • Very Low Crowd</small>
+                        </div>
+
+                    </div>
+
+                    <button class="explore-link">
+                        Explore More →
+                    </button>
+
+                </div>
+
+
+                <!-- BEFORE YOU VISIT -->
+
+                <div class="intel-card before-card">
+
+                    <div class="intel-title">
+
+                        <div class="intel-icon before-icon">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </div>
+
+                        <div>
+                            <h3>Before You Visit</h3>
+                            <p>Cultural Guide & Essentials</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="guide-item">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        <div>
+                            <strong>Local Greetings</strong>
+                            <small>"Namaste"</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="guide-item">
+
+                        <i class="fa-solid fa-shirt"></i>
+
+                        <div>
+                            <strong>Dress Code</strong>
+                            <small>Light & modest clothing</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="guide-item">
+
+                        <i class="fa-solid fa-utensils"></i>
+
+                        <div>
+                            <strong>Food Etiquette</strong>
+                            <small>Try local Goan cuisine</small>
+                        </div>
+
+                    </div>
+
+
+                    <div class="guide-item">
+
+                        <i class="fa-solid fa-camera"></i>
+
+                        <div>
+                            <strong>Photography Rules</strong>
+                            <small>Avoid restricted areas</small>
+                        </div>
+
+                    </div>
+
+
+                    <button class="guide-btn" onclick="openCulture()">
+                        View Complete Guide →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LOWER GRID ================= -->
+
+        <section class="lower-grid">
+
+
+            <!-- AI ITINERARY -->
+
+            <div class="panel itinerary-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>
+                            <i class="fa-solid fa-robot"></i>
+                            Your AI Itinerary
+
+                            <span class="personalized">
+                                Personalized for you
+                            </span>
+                        </h2>
+
+                        <p>
+                            A 3-day plan based on your preferences,
+                            weather, crowd & local events.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- DAY 1 -->
+
+                <div class="day">
+
+                    <div class="day-number">
+                        <span>Day 1</span>
+                        <small>15 Apr</small>
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=300&q=80"
+                        alt="Beach"
+                    >
+
+                    <div class="day-info">
+
+                        <h3>Morjim Beach <span>(Less Crowded)</span></h3>
+
+                        <div class="tags">
+                            <span>Morning</span>
+                            <span>Beach</span>
+                        </div>
+
+                        <p>
+                            Relax & enjoy beach, water sports
+                            and sunset.
+                        </p>
+
+                        <small>
+                            <i class="fa-solid fa-sun"></i>
+                            28°C
+                            &nbsp; • &nbsp;
+                            <i class="fa-solid fa-users"></i>
+                            Low Crowd
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DAY 2 -->
+
+                <div class="day">
+
+                    <div class="day-number">
+                        <span>Day 2</span>
+                        <small>16 Apr</small>
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=300&q=80"
+                        alt="Fontainhas heritage architecture"
+                    >
+
+                    <div class="day-info">
+
+                        <h3>Fontainhas Walking Tour</h3>
+
+                        <div class="tags">
+                            <span>Full Day</span>
+                            <span>Culture</span>
+                        </div>
+
+                        <p>
+                            Explore Portuguese heritage,
+                            local architecture and culture.
+                        </p>
+
+                        <small>
+                            <i class="fa-solid fa-sun"></i>
+                            29°C
+                            &nbsp; • &nbsp;
+                            <i class="fa-solid fa-users"></i>
+                            Moderate Crowd
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DAY 3 -->
+
+                <div class="day">
+
+                    <div class="day-number">
+                        <span>Day 3</span>
+                        <small>17 Apr</small>
+                    </div>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=300&q=80"
+                        alt="Waterfall"
+                    >
+
+                    <div class="day-info">
+
+                        <h3>Dudhsagar Falls</h3>
+
+                        <div class="tags">
+                            <span>Full Day</span>
+                            <span>Adventure</span>
+                        </div>
+
+                        <p>
+                            Scenic trek, nature and photography.
+                        </p>
+
+                        <small>
+                            <i class="fa-solid fa-sun"></i>
+                            27°C
+                            &nbsp; • &nbsp;
+                            <i class="fa-solid fa-users"></i>
+                            Low Crowd
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="itinerary-footer">
+
+                    <button onclick="viewItinerary()">
+                        View Detailed Itinerary
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                    <div class="ai-note">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        AI Tip: Rain expected on Day 3 afternoon,
+                        so we've planned indoor activities.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT COLUMN -->
+
+            <div class="right-column">
+
+
+                <!-- WEATHER FORECAST -->
+
+                <div class="panel forecast-panel">
+
+                    <div class="panel-header small-header">
+
+                        <div>
+                            <h2>
+                                🌤️ Live Weather Forecast
+                            </h2>
+
+                            <p>Goa</p>
+                        </div>
+
+                        <a href="../saved-destinations/saved-destinations.html">See More →</a>
+
+                    </div>
+
+
+                    <div class="forecast">
+
+                        <div class="today">
+
+                            <small>Today</small>
+                            <strong>29°C</strong>
+                            <span>☀️ Sunny</span>
+
+                        </div>
+
+                        <div>
+                            <small>16 Apr</small>
+                            <strong>28°C</strong>
+                            <span>🌧️</span>
+                        </div>
+
+                        <div>
+                            <small>17 Apr</small>
+                            <strong>27°C</strong>
+                            <span>🌧️</span>
+                        </div>
+
+                        <div>
+                            <small>18 Apr</small>
+                            <strong>26°C</strong>
+                            <span>🌧️</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CULTURAL EXPERIENCES -->
+
+                <div class="panel">
+
+                    <div class="panel-header small-header">
+
+                        <h2>🎨 Top Cultural Experiences</h2>
+
+                        <a href="../Bookings/bookings.html">See All →</a>
+
+                    </div>
+
+
+                    <div class="experience-grid">
+
+                        <div class="experience">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=400&q=80"
+                                alt="Food"
+                            >
+
+                            <strong>Goan Cooking Class</strong>
+
+                            <small>
+                                ₹1,500 • ⭐ 4.8
+                            </small>
+
+                        </div>
+
+
+                        <div class="experience">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=400&q=80"
+                                alt="Dance"
+                            >
+
+                            <strong>Folk Dance Performance</strong>
+
+                            <small>
+                                ₹1,200 • ⭐ 4.7
+                            </small>
+
+                        </div>
+
+
+                        <div class="experience">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=400&q=80"
+                                alt="Heritage"
+                            >
+
+                            <strong>Old Goa Heritage Tour</strong>
+
+                            <small>
+                                ₹1,000 • ⭐ 4.6
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WHY RECOMMENDATION -->
+
+                <div class="panel recommendation">
+
+                    <h2>
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        Why This Recommendation?
+                    </h2>
+
+                    <p>
+                        We chose <strong>Morjim Beach</strong>
+                        instead of Baga because:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Lower crowd level (62% vs 92%)
+                        </li>
+
+                        <li>
+                            Better weather conditions in the morning
+                        </li>
+
+                        <li>
+                            Similar experience with more peace
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="side-stack">
+
+
+            <!-- AI CHAT -->
+
+            <div class="panel ai-chat-panel">
+
+                <div class="chat-header">
+
+                    <div class="robot small">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+
+                    <div>
+                        <h3>Yatra AI</h3>
+                        <p>Your personal travel companion</p>
+                        <span>
+                            <i class="fa-solid fa-circle"></i>
+                            Online
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="chat-messages">
+
+                    <div class="user-message">
+                        Plan a 3 day trip to Goa. I love beaches
+                        and culture. My budget is ₹15,000.
+                    </div>
+
+
+                    <div class="ai-message">
+
+                        <strong>Yatra AI</strong>
+
+                        <p>
+                            Based on your preferences and real-time
+                            data, here's a personalized 3-day
+                            itinerary for Goa with:
+                        </p>
+
+                        <ul>
+                            <li>Better weather windows</li>
+                            <li>Lesser-crowded beaches</li>
+                            <li>Cultural experiences</li>
+                            <li>Budget-friendly options</li>
+                        </ul>
+
+                        <p>
+                            Would you like me to show the detailed
+                            plan with maps and bookings?
+                        </p>
+
+                        <small>10:24 AM</small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chat-input">
+
+                    <input
+                        type="text"
+                        id="chatInput"
+                        placeholder="Ask me anything about your trip..."
+                    >
+
+                    <button onclick="sendMessage()">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="panel quick-panel">
+
+                <div class="panel-header">
+                    <h2>Quick Actions</h2>
+                </div>
+
+
+                <div class="quick-grid">
+
+                    <button onclick="planTrip()">
+                        <i class="fa-solid fa-route"></i>
+                        <span>Plan New Trip</span>
+                    </button>
+
+                    <button onclick="openAI()">
+                        <i class="fa-solid fa-robot"></i>
+                        <span>Chat with Yatra AI</span>
+                    </button>
+
+                    <button onclick="explore()">
+                        <i class="fa-regular fa-map"></i>
+                        <span>Explore Destinations</span>
+                    </button>
+
+                    <button onclick="bookings()">
+                        <i class="fa-solid fa-ticket"></i>
+                        <span>View Bookings</span>
+                    </button>
+
+                    <button onclick="viewItinerary()">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span>My Itinerary</span>
+                    </button>
+
+                    <button onclick="profile()">
+                        <i class="fa-regular fa-user"></i>
+                        <span>Update Profile</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= BOTTOM USP ================= -->
+
+        <section class="usp-banner">
+
+            <div class="usp-brand">
+
+                <div class="brand-logo">
+                    <i class="fa-solid fa-mountain-sun"></i>
+                </div>
+
+                <div>
+                    <h2>YatraSutra</h2>
+                    <p>AI + Real-time Data + Local Insights</p>
+                    <small>Smarter Travel. Richer Experiences.</small>
+                </div>
+
+            </div>
+
+
+            <div class="usp-items">
+
+                <div>
+                    <i class="fa-solid fa-cloud-sun"></i>
+                    <span>Weather</span>
+                    <small>Real-time forecast</small>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-users"></i>
+                    <span>Crowd</span>
+                    <small>Live crowd levels</small>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-person"></i>
+                    <span>Culture</span>
+                    <small>Local guides</small>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hidden Gems</span>
+                    <small>Lesser-known places</small>
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-robot"></i>
+                    <span>AI Itinerary</span>
+                    <small>Personalized for you</small>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<!-- ================= AI MODAL ================= -->
+<div class="modal" id="aiModal">
+
+    <div class="modal-box">
+
+        <button class="close-modal" onclick="closeAI()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-robot">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+
+        <h2>Yatra AI</h2>
+
+        <p>
+            Tell me about your trip and I'll create
+            a personalized travel plan.
+        </p>
+
+        <input
+            type="text"
+            id="modalMessage"
+            placeholder="Example: Plan a 3 day Goa trip..."
+        >
+
+        <button onclick="generatePlan()">
+            Generate My Trip
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <div id="planResult"></div>
+
+    </div>
+
+</div>
+
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>
