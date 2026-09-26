@@ -84,36 +84,78 @@ function closeAI() {
 }
 
 
-function generatePlan() {
+async function generatePlan() {
 
-    const input =
-        document.getElementById("modalMessage");
+    const input = document.getElementById("modalMessage");
+    const result = document.getElementById("planResult");
 
-    const result =
-        document.getElementById("planResult");
-
-    const message =
-        input.value.trim();
+    const message = input.value.trim();
 
     if (!message) {
-
-        result.innerHTML =
-            "Please describe your trip first.";
-
+        result.innerHTML = "Please describe your trip first.";
         return;
-
     }
 
     result.innerHTML = `
-        <strong>Yatra AI is analyzing...</strong><br><br>
-        ✓ Your preferences<br>
-        ✓ Weather conditions<br>
-        ✓ Crowd levels<br>
-        ✓ Lesser-known destinations<br>
-        ✓ Cultural experiences<br><br>
-        Your personalized itinerary is being prepared.
+        <strong>🤖 Yatra AI is creating your itinerary...</strong>
+        <br><br>
+        Please wait a moment.
     `;
 
+    try {
+
+        const response = await fetch(
+            "https://gkmiyzlplgqphnvpeuuh.supabase.co/functions/v1/Yatra_AI",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    message: message
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        console.log("Yatra AI response:", data);
+
+        if (!response.ok) {
+            throw new Error(
+                data.error || "Yatra AI request failed."
+            );
+        }
+
+        const itinerary =
+            data.reply ||
+            data.response ||
+            data.message ||
+            data.text;
+
+        if (!itinerary) {
+            throw new Error("AI returned an empty response.");
+        }
+
+        result.innerHTML = `
+            <strong>✨ Your Yatra AI Itinerary</strong>
+            <br><br>
+            ${itinerary.replace(/\n/g, "<br>")}
+        `;
+
+    } catch (error) {
+
+        console.error("Yatra AI Error:", error);
+
+        result.innerHTML = `
+            <strong>❌ Something went wrong.</strong>
+            <br><br>
+            ${error.message}
+        `;
+
+    }
 }
 
 
@@ -124,37 +166,58 @@ function generatePlan() {
 const chatInput =
     document.getElementById("chatInput");
 
-function sendMessage() {
+async function sendMessage() {
 
-    const message =
-        chatInput.value.trim();
+    const message = chatInput.value.trim();
 
     if (!message) {
         return;
     }
 
-    alert(
-        `Yatra AI received:\n\n${message}\n\n`
-        +
-        `In the final version, this message will `
-        +
-        `be sent to your AI backend.`
-    );
-
     chatInput.value = "";
 
-}
+    try {
 
+        const response = await fetch(
+            "https://gkmiyzlplgqphnvpeuuh.supabase.co/functions/v1/Yatra_AI",
+            {
+                method: "POST",
 
-chatInput.addEventListener("keydown", function(e) {
+                headers: {
+                    "Content-Type": "application/json",
+                    "apikey": "sb_publishable_Sh89iRHQ-8uiDRVFwuy4Vw_Jq3HsBJ-",
+                    "Authorization": "Bearer sb_publishable_Sh89iRHQ-8uiDRVFwuy4Vw_Jq3HsBJ-"
+                },
 
-    if (e.key === "Enter") {
+                body: JSON.stringify({
+                    message: message
+                })
+            }
+        );
 
-        sendMessage();
+        const data = await response.json();
+
+        console.log("Yatra AI response:", data);
+
+        if (!response.ok) {
+            throw new Error(
+                data.error || data.message || "Yatra AI request failed."
+            );
+        }
+
+        alert(data.reply);
+
+    } catch (error) {
+
+        console.error("Yatra AI error:", error);
+
+        alert(
+            "Yatra AI could not respond\n\n" +
+            error.message
+        );
 
     }
-
-});
+}
 
 
 /* ============================================
