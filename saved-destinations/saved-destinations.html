@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Saved Destinations | YatraSutra</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="saved-destinations.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+        <div class="brand-logo"><i class="fa-solid fa-mountain-sun"></i></div>
+        <div class="brand-text">
+            <h2>YatraSutra</h2>
+            <p>Explore • Experience • Connect</p>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+            <a href="../Dashboard/dashboard.html"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="../My trip/my-trips.html"><i class="fa-solid fa-suitcase-rolling"></i><span>My Trips</span></a>
+            <a href="saved-destinations.html" class="active"><i class="fa-regular fa-bookmark"></i><span>Saved Destinations</span></a>
+            <a href="../Bookings/bookings.html"><i class="fa-regular fa-calendar-check"></i><span>Bookings</span></a>
+            <a href="../Cultural/cultural.html"><i class="fa-solid fa-masks-theater"></i><span>Explore Culture</span></a>
+        </nav>
+
+    <div class="sidebar-bottom">
+        <p>"Not just trips,<br>but memories<br>for a lifetime."</p>
+        <i class="fa-solid fa-plane"></i>
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN CONTENT ================= -->
+
+<main class="main-content">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div class="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="destinationSearch"
+                placeholder="Search saved destinations..."
+            >
+
+        </div>
+
+
+        <div class="topbar-right">
+
+            <button class="notification-btn" onclick="showNotification()">
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-dot"></span>
+            </button>
+
+            <div class="user-profile">
+
+                <img src="https://i.pravatar.cc/100?img=47" alt="Profile">
+
+                <div class="user-info">
+                    <strong>Priya Sharma</strong>
+                    <small>Tourist</small>
+                </div>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <div>
+            <span class="section-label">
+                <i class="fa-solid fa-bookmark"></i>
+                YOUR COLLECTION
+            </span>
+
+            <h1>Saved Destinations</h1>
+
+            <p>
+                Keep your favorite destinations ready for your next adventure.
+            </p>
+        </div>
+
+        <a href="../My trip/my-trips.html" class="primary-btn">
+            <i class="fa-solid fa-compass"></i>
+            Explore Destinations
+        </a>
+
+    </section>
+
+
+    <!-- STATS -->
+
+    <section class="saved-stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon teal">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+
+            <div>
+                <span>Total Saved</span>
+                <h3 id="totalSaved">6</h3>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon orange">
+                <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+
+            <div>
+                <span>States</span>
+                <h3 id="totalStates">6</h3>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon green">
+                <i class="fa-solid fa-calendar-days"></i>
+            </div>
+
+            <div>
+                <span>Best Time Saved</span>
+                <h3>Monsoon</h3>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon purple">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </div>
+
+            <div>
+                <span>AI Suggestions</span>
+                <h3>4</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FILTER BAR -->
+
+    <section class="filter-section">
+
+        <div class="filter-tabs">
+
+            <button class="filter-btn active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-filter="beach">
+                <i class="fa-solid fa-umbrella-beach"></i>
+                Beach
+            </button>
+
+            <button class="filter-btn" data-filter="mountain">
+                <i class="fa-solid fa-mountain"></i>
+                Mountains
+            </button>
+
+            <button class="filter-btn" data-filter="culture">
+                <i class="fa-solid fa-landmark"></i>
+                Culture
+            </button>
+
+            <button class="filter-btn" data-filter="nature">
+                <i class="fa-solid fa-leaf"></i>
+                Nature
+            </button>
+
+        </div>
+
+        <select id="sortDestinations" class="sort-select">
+
+            <option value="recent">
+                Recently Saved
+            </option>
+
+            <option value="name">
+                Name A-Z
+            </option>
+
+            <option value="budget">
+                Budget: Low to High
+            </option>
+
+        </select>
+
+    </section>
+
+
+    <!-- DESTINATIONS GRID -->
+
+    <section class="destinations-grid" id="destinationsGrid">
+
+
+        <!-- DESTINATION 1 -->
+
+        <article
+            class="destination-card"
+            data-category="beach"
+            data-name="Goa"
+            data-budget="15000"
+        >
+
+            <div class="destination-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=85"
+                    alt="Goa"
+                >
+
+                <span class="saved-badge">
+                    <i class="fa-solid fa-heart"></i>
+                </span>
+
+                <span class="category-badge">
+                    Beach
+                </span>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeDestination(this)"
+                    title="Remove from saved"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="destination-content">
+
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Goa, India
+                </div>
+
+                <h3>Goa</h3>
+
+                <p>
+                    Beaches, Portuguese heritage, local food and vibrant nightlife.
+                </p>
+
+
+                <div class="destination-info">
+
+                    <span>
+                        <i class="fa-solid fa-wallet"></i>
+                        ₹15,000+
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-calendar"></i>
+                        3–5 Days
+                    </span>
+
+                </div>
+
+
+                <div class="destination-footer">
+
+                    <span class="best-time">
+                        <i class="fa-solid fa-sun"></i>
+                        Nov – Feb
+                    </span>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewDestination('Goa')"
+                    >
+                        View
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- DESTINATION 2 -->
+
+        <article
+            class="destination-card"
+            data-category="culture"
+            data-name="Jaipur"
+            data-budget="18000"
+        >
+
+            <div class="destination-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=900&q=85"
+                    alt="Jaipur"
+                >
+
+                <span class="saved-badge">
+                    <i class="fa-solid fa-heart"></i>
+                </span>
+
+                <span class="category-badge">
+                    Culture
+                </span>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeDestination(this)"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="destination-content">
+
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Rajasthan, India
+                </div>
+
+                <h3>Jaipur</h3>
+
+                <p>
+                    Explore royal palaces, forts, traditional crafts and Rajasthani cuisine.
+                </p>
+
+
+                <div class="destination-info">
+
+                    <span>
+                        <i class="fa-solid fa-wallet"></i>
+                        ₹18,000+
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-calendar"></i>
+                        3–4 Days
+                    </span>
+
+                </div>
+
+
+                <div class="destination-footer">
+
+                    <span class="best-time">
+                        <i class="fa-solid fa-sun"></i>
+                        Oct – Mar
+                    </span>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewDestination('Jaipur')"
+                    >
+                        View
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- DESTINATION 3 -->
+
+        <article
+            class="destination-card"
+            data-category="nature"
+            data-name="Kerala"
+            data-budget="20000"
+        >
+
+            <div class="destination-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=85"
+                    alt="Kerala"
+                >
+
+                <span class="saved-badge">
+                    <i class="fa-solid fa-heart"></i>
+                </span>
+
+                <span class="category-badge">
+                    Nature
+                </span>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeDestination(this)"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="destination-content">
+
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Kerala, India
+                </div>
+
+                <h3>Kerala</h3>
+
+                <p>
+                    Backwaters, hill stations, traditional cuisine and beautiful landscapes.
+                </p>
+
+
+                <div class="destination-info">
+
+                    <span>
+                        <i class="fa-solid fa-wallet"></i>
+                        ₹20,000+
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-calendar"></i>
+                        4–6 Days
+                    </span>
+
+                </div>
+
+
+                <div class="destination-footer">
+
+                    <span class="best-time">
+                        <i class="fa-solid fa-cloud-rain"></i>
+                        Jun – Sep
+                    </span>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewDestination('Kerala')"
+                    >
+                        View
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- DESTINATION 4 -->
+
+        <article
+            class="destination-card"
+            data-category="mountain"
+            data-name="Manali"
+            data-budget="17000"
+        >
+
+            <div class="destination-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=85"
+                    alt="Manali"
+                >
+
+                <span class="saved-badge">
+                    <i class="fa-solid fa-heart"></i>
+                </span>
+
+                <span class="category-badge">
+                    Mountains
+                </span>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeDestination(this)"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="destination-content">
+
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Himachal Pradesh
+                </div>
+
+                <h3>Manali</h3>
+
+                <p>
+                    Snow-covered mountains, adventure activities and peaceful valleys.
+                </p>
+
+
+                <div class="destination-info">
+
+                    <span>
+                        <i class="fa-solid fa-wallet"></i>
+                        ₹17,000+
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-calendar"></i>
+                        4–5 Days
+                    </span>
+
+                </div>
+
+
+                <div class="destination-footer">
+
+                    <span class="best-time">
+                        <i class="fa-solid fa-snowflake"></i>
+                        Oct – Feb
+                    </span>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewDestination('Manali')"
+                    >
+                        View
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- DESTINATION 5 -->
+
+        <article
+            class="destination-card"
+            data-category="culture"
+            data-name="Varanasi"
+            data-budget="12000"
+        >
+
+            <div class="destination-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=900&q=85"
+                    alt="Varanasi"
+                >
+
+                <span class="saved-badge">
+                    <i class="fa-solid fa-heart"></i>
+                </span>
+
+                <span class="category-badge">
+                    Culture
+                </span>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeDestination(this)"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="destination-content">
+
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Uttar Pradesh
+                </div>
+
+                <h3>Varanasi</h3>
+
+                <p>
+                    Experience ancient traditions, ghats, temples and local culture.
+                </p>
+
+
+                <div class="destination-info">
+
+                    <span>
+                        <i class="fa-solid fa-wallet"></i>
+                        ₹12,000+
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-calendar"></i>
+                        2–4 Days
+                    </span>
+
+                </div>
+
+
+                <div class="destination-footer">
+
+                    <span class="best-time">
+                        <i class="fa-solid fa-sun"></i>
+                        Oct – Mar
+                    </span>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewDestination('Varanasi')"
+                    >
+                        View
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- DESTINATION 6 -->
+
+        <article
+            class="destination-card"
+            data-category="nature"
+            data-name="Meghalaya"
+            data-budget="22000"
+        >
+
+            <div class="destination-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=900&q=85"
+                    alt="Meghalaya"
+                >
+
+                <span class="saved-badge">
+                    <i class="fa-solid fa-heart"></i>
+                </span>
+
+                <span class="category-badge">
+                    Nature
+                </span>
+
+                <button
+                    class="remove-btn"
+                    onclick="removeDestination(this)"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="destination-content">
+
+                <div class="location">
+                    <i class="fa-solid fa-location-dot"></i>
+                    Meghalaya, India
+                </div>
+
+                <h3>Meghalaya</h3>
+
+                <p>
+                    Waterfalls, living root bridges, caves and unique local traditions.
+                </p>
+
+
+                <div class="destination-info">
+
+                    <span>
+                        <i class="fa-solid fa-wallet"></i>
+                        ₹22,000+
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-calendar"></i>
+                        5–7 Days
+                    </span>
+
+                </div>
+
+
+                <div class="destination-footer">
+
+                    <span class="best-time">
+                        <i class="fa-solid fa-cloud"></i>
+                        Oct – Apr
+                    </span>
+
+                    <button
+                        class="view-btn"
+                        onclick="viewDestination('Meghalaya')"
+                    >
+                        View
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- EMPTY STATE -->
+
+    <section class="empty-state" id="emptyState">
+
+        <div class="empty-icon">
+            <i class="fa-regular fa-heart"></i>
+        </div>
+
+        <h2>No saved destinations</h2>
+
+        <p>
+            Start exploring and save destinations that you would love to visit.
+        </p>
+
+        <a href="../My trip/my-trips.html" class="primary-btn">
+            <i class="fa-solid fa-compass"></i>
+            Explore Destinations
+        </a>
+
+    </section>
+
+
+    <!-- AI RECOMMENDATION -->
+
+    <section class="ai-recommendation">
+
+        <div class="ai-icon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+
+        <div class="ai-text">
+
+            <span>YATRA AI RECOMMENDS</span>
+
+            <h2>
+                Discover a destination similar to your saved places
+            </h2>
+
+            <p>
+                Based on your saved destinations, Yatra AI can suggest
+                lesser-known places, cultural experiences and destinations
+                that match your travel style.
+            </p>
+
+        </div>
+
+        <button class="ai-btn" onclick="getAISuggestion()">
+            <i class="fa-solid fa-sparkles"></i>
+            Get AI Suggestion
+        </button>
+
+    </section>
+
+</main>
+
+
+<!-- ================= AI MODAL ================= -->
+
+<div class="modal-overlay" id="aiModal">
+
+    <div class="ai-modal">
+
+        <button class="close-modal" onclick="closeAIModal()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="modal-ai-icon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+
+        <span class="modal-label">
+            YATRA AI
+        </span>
+
+        <h2>Your Next Destination</h2>
+
+        <p id="aiSuggestionText">
+            Analyzing your saved destinations...
+        </p>
+
+        <div class="suggestion-card">
+
+            <div class="suggestion-image">
+                <img src="https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&w=900&q=85" alt="Maharashtra">
+            </div>
+
+            <div class="suggestion-content">
+
+                <span>AI MATCH</span>
+
+                <h3>Konkan</h3>
+
+                <p>
+                    Beaches, local cuisine, forts and authentic
+                    coastal Maharashtra experiences.
+                </p>
+
+                <button onclick="planSuggestion()">
+                    Plan This Trip
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+<script src="saved-destinations.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Trips - YatraSutra</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="my-trips.css">
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+        <div class="brand-logo"><i class="fa-solid fa-mountain-sun"></i></div>
+        <div class="brand-text">
+            <h2>YatraSutra</h2>
+            <p>Explore • Experience • Connect</p>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+            <a href="../Dashboard/dashboard.html"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="my-trips.html" class="active"><i class="fa-solid fa-suitcase-rolling"></i><span>My Trips</span></a>
+            <a href="../saved-destinations/saved-destinations.html"><i class="fa-regular fa-bookmark"></i><span>Saved Destinations</span></a>
+            <a href="../Bookings/bookings.html"><i class="fa-regular fa-calendar-check"></i><span>Bookings</span></a>
+            <a href="../Cultural/cultural.html"><i class="fa-solid fa-masks-theater"></i><span>Explore Culture</span></a>
+        </nav>
+
+    <div class="sidebar-bottom">
+        <p>"Not just trips,<br>but memories<br>for a lifetime."</p>
+        <i class="fa-solid fa-plane"></i>
+    </div>
+
+</aside>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div class="search">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchTrips"
+                placeholder="Search your trips..."
+            >
+
+        </div>
+
+
+        <div class="top-actions">
+
+            <button class="notification">
+                <i class="fa-regular fa-bell"></i>
+                <span></span>
+            </button>
+
+
+            <div class="profile">
+
+                <img
+                    src="https://i.pravatar.cc/100?img=47"
+                    alt="Profile"
+                >
+
+                <div>
+                    <strong>Priya Sharma</strong>
+                    <small>Tourist</small>
+                </div>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CONTENT ================= -->
+
+    <div class="content">
+
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <div>
+
+                <span class="small-label">
+                    <i class="fa-solid fa-route"></i>
+                    YOUR TRAVEL JOURNEY
+                </span>
+
+                <h1>My Trips</h1>
+
+                <p>
+                    Manage your trips, explore AI recommendations
+                    and make every journey smarter.
+                </p>
+
+            </div>
+
+
+            <button class="new-trip-btn" onclick="createTrip()">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Plan New Trip
+
+            </button>
+
+        </section>
+
+
+        <!-- ================= TRIP FILTERS ================= -->
+
+        <div class="trip-filters">
+
+            <button class="filter active" data-filter="all">
+                All Trips
+            </button>
+
+            <button class="filter" data-filter="upcoming">
+                Upcoming
+            </button>
+
+            <button class="filter" data-filter="ongoing">
+                Ongoing
+            </button>
+
+            <button class="filter" data-filter="completed">
+                Completed
+            </button>
+
+        </div>
+
+
+        <!-- ================= TRIP CARDS ================= -->
+
+        <section class="trip-grid" id="tripGrid">
+
+
+            <!-- GOA -->
+
+            <article
+                class="trip-card"
+                data-status="upcoming"
+                data-name="goa"
+            >
+
+                <div class="trip-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=85"
+                        alt="Goa"
+                    >
+
+                    <span class="status upcoming">
+                        Upcoming
+                    </span>
+
+                    <button class="heart-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="trip-body">
+
+                    <div class="location">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Goa, India
+
+                    </div>
+
+                    <h2>Goa Beach & Culture Trip</h2>
+
+                    <div class="trip-date">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        15 Apr – 18 Apr 2026
+
+                    </div>
+
+
+                    <div class="trip-info">
+
+                        <span>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            3 Days
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-wallet"></i>
+                            ₹15,000
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-users"></i>
+                            2 Travelers
+                        </span>
+
+                    </div>
+
+
+                    <div class="ai-insight">
+
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+                        <div>
+
+                            <strong>AI Insight</strong>
+
+                            <p>
+                                Morjim is less crowded than Baga
+                                during your trip.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="view-trip"
+                        onclick="viewTrip('Goa')"
+                    >
+
+                        View Trip
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- JAIPUR -->
+
+            <article
+                class="trip-card"
+                data-status="ongoing"
+                data-name="jaipur"
+            >
+
+                <div class="trip-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=900&q=85"
+                        alt="Jaipur"
+                    >
+
+                    <span class="status ongoing">
+                        Ongoing
+                    </span>
+
+                    <button class="heart-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="trip-body">
+
+                    <div class="location">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Jaipur, Rajasthan
+
+                    </div>
+
+                    <h2>Royal Rajasthan Experience</h2>
+
+                    <div class="trip-date">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        12 Sep – 16 Sep 2026
+
+                    </div>
+
+
+                    <div class="trip-info">
+
+                        <span>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            4 Days
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-wallet"></i>
+                            ₹20,000
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-users"></i>
+                            2 Travelers
+                        </span>
+
+                    </div>
+
+
+                    <div class="ai-insight">
+
+                        <i class="fa-solid fa-cloud-sun"></i>
+
+                        <div>
+
+                            <strong>Live Update</strong>
+
+                            <p>
+                                Amber Fort is less crowded
+                                before 10 AM today.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="view-trip"
+                        onclick="viewTrip('Jaipur')"
+                    >
+
+                        Continue Trip
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- KERALA -->
+
+            <article
+                class="trip-card"
+                data-status="completed"
+                data-name="kerala"
+            >
+
+                <div class="trip-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=85"
+                        alt="Kerala"
+                    >
+
+                    <span class="status completed">
+                        Completed
+                    </span>
+
+                    <button class="heart-btn">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+
+                </div>
+
+
+                <div class="trip-body">
+
+                    <div class="location">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                        Kerala, India
+
+                    </div>
+
+                    <h2>Kerala Nature Escape</h2>
+
+                    <div class="trip-date">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        02 Aug – 05 Aug 2026
+
+                    </div>
+
+
+                    <div class="trip-info">
+
+                        <span>
+                            <i class="fa-solid fa-calendar-days"></i>
+                            3 Days
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-wallet"></i>
+                            ₹13,500
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-users"></i>
+                            2 Travelers
+                        </span>
+
+                    </div>
+
+
+                    <div class="ai-insight completed-note">
+
+                        <i class="fa-solid fa-star"></i>
+
+                        <div>
+
+                            <strong>Trip Completed</strong>
+
+                            <p>
+                                You visited 5 destinations
+                                and 2 cultural experiences.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="view-trip"
+                        onclick="viewTrip('Kerala')"
+                    >
+
+                        View Trip
+
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+        <!-- ================= AI TRIP ASSISTANT ================= -->
+
+        <section class="ai-planner">
+
+            <div class="ai-content">
+
+                <div class="ai-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+
+                <div>
+
+                    <span>YATRA AI</span>
+
+                    <h2>Want to plan your next trip?</h2>
+
+                    <p>
+                        Tell Yatra AI your destination, budget,
+                        interests and travel style. It will create
+                        a personalized itinerary using weather,
+                        crowd levels and local experiences.
+                    </p>
+
+                    <div class="ai-features">
+
+                        <span>
+                            <i class="fa-solid fa-cloud-sun"></i>
+                            Weather
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-users"></i>
+                            Crowd Level
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-location-dot"></i>
+                            Hidden Gems
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-masks-theater"></i>
+                            Culture
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="ai-plan-btn"
+                onclick="openAI()"
+            >
+
+                Plan with Yatra AI
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </section>
+
+
+        <!-- ================= TRAVEL INSIGHTS ================= -->
+
+        <section class="travel-insights">
+
+            <div class="section-title">
+
+                <div>
+                    <h2>Your Travel Insights</h2>
+                    <p>
+                        Your journey at a glance.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="insight-grid">
+
+                <div class="insight-box">
+
+                    <div class="insight-icon trips">
+                        <i class="fa-solid fa-suitcase"></i>
+                    </div>
+
+                    <div>
+                        <strong>8</strong>
+                        <span>Total Trips</span>
+                    </div>
+
+                </div>
+
+
+                <div class="insight-box">
+
+                    <div class="insight-icon places">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div>
+                        <strong>24</strong>
+                        <span>Places Visited</span>
+                    </div>
+
+                </div>
+
+
+                <div class="insight-box">
+
+                    <div class="insight-icon culture">
+                        <i class="fa-solid fa-masks-theater"></i>
+                    </div>
+
+                    <div>
+                        <strong>12</strong>
+                        <span>Cultural Experiences</span>
+                    </div>
+
+                </div>
+
+
+                <div class="insight-box">
+
+                    <div class="insight-icon saved">
+                        <i class="fa-regular fa-bookmark"></i>
+                    </div>
+
+                    <div>
+                        <strong>17</strong>
+                        <span>Saved Places</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<!-- ================= AI MODAL ================= -->
+<div class="modal" id="aiModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            onclick="closeAI()"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <div class="modal-ai-icon">
+
+            <i class="fa-solid fa-robot"></i>
+
+        </div>
+
+
+        <span>YATRA AI</span>
+
+        <h2>Plan your next adventure</h2>
+
+        <p>
+            Tell me where you want to go and
+            what kind of experience you want.
+        </p>
+
+
+        <textarea
+            id="aiInput"
+            placeholder="Example: Plan a 4-day trip to Kerala under ₹20,000 with nature and cultural experiences..."
+        ></textarea>
+
+
+        <button
+            class="generate-btn"
+            onclick="generateTrip()"
+        >
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            Generate My Trip
+
+        </button>
+
+
+        <div id="aiResult"></div>
+
+    </div>
+
+</div>
+
+
+<script src="my-trips.js"></script>
+
+</body>
+</html>

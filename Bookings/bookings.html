@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bookings | YatraSutra</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="bookings.css">
+</head>
+
+<body>
+
+<!-- =========================================
+     SIDEBAR
+========================================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="brand">
+        <div class="brand-logo"><i class="fa-solid fa-mountain-sun"></i></div>
+        <div class="brand-text">
+            <h2>YatraSutra</h2>
+            <p>Explore • Experience • Connect</p>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav">
+            <a href="../Dashboard/dashboard.html"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="../My trip/my-trips.html"><i class="fa-solid fa-suitcase-rolling"></i><span>My Trips</span></a>
+            <a href="../saved-destinations/saved-destinations.html"><i class="fa-regular fa-bookmark"></i><span>Saved Destinations</span></a>
+            <a href="bookings.html" class="active"><i class="fa-regular fa-calendar-check"></i><span>Bookings</span></a>
+            <a href="../Cultural/cultural.html"><i class="fa-solid fa-masks-theater"></i><span>Explore Culture</span></a>
+        </nav>
+
+    <div class="sidebar-bottom">
+        <p>"Not just trips,<br>but memories<br>for a lifetime."</p>
+        <i class="fa-solid fa-plane"></i>
+    </div>
+
+</aside>
+
+
+<!-- =========================================
+     MAIN CONTENT
+========================================= -->
+
+<main class="main-content">
+
+    <!-- TOPBAR -->
+
+    <header class="topbar">
+
+        <div class="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="bookingSearch"
+                placeholder="Search bookings..."
+            >
+
+        </div>
+
+
+        <div class="topbar-right">
+
+            <button
+                class="notification-btn"
+                onclick="showNotification()"
+            >
+                <i class="fa-regular fa-bell"></i>
+                <span class="notification-dot"></span>
+            </button>
+
+
+            <div class="user-profile">
+
+                <img src="https://i.pravatar.cc/100?img=47" alt="Profile">
+
+                <div class="user-info">
+                    <strong>Priya Sharma</strong>
+                    <small>Tourist</small>
+                </div>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         PAGE HEADER
+    ========================================= -->
+
+    <section class="page-header">
+
+        <div>
+
+            <span class="section-label">
+                <i class="fa-solid fa-calendar-check"></i>
+                TRAVEL MANAGEMENT
+            </span>
+
+            <h1>My Bookings</h1>
+
+            <p>
+                Manage your hotels, experiences, transport and travel bookings.
+            </p>
+
+        </div>
+
+
+        <a href="../My trip/my-trips.html" class="primary-btn">
+
+            <i class="fa-solid fa-compass"></i>
+
+            Explore & Book
+
+        </a>
+
+    </section>
+
+
+    <!-- =========================================
+         BOOKING STATS
+    ========================================= -->
+
+    <section class="booking-stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon teal">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+
+            <div>
+                <span>Total Bookings</span>
+                <h3 id="totalBookings">6</h3>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon orange">
+                <i class="fa-solid fa-clock"></i>
+            </div>
+
+            <div>
+                <span>Upcoming</span>
+                <h3 id="upcomingBookings">3</h3>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon green">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+
+            <div>
+                <span>Completed</span>
+                <h3 id="completedBookings">2</h3>
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon purple">
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+            </div>
+
+            <div>
+                <span>Total Spent</span>
+                <h3 id="totalSpent">₹27,450</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         FILTER BAR
+    ========================================= -->
+
+    <section class="filter-section">
+
+        <div class="filter-tabs">
+
+            <button
+                class="filter-btn active"
+                data-filter="all"
+            >
+                All
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="hotel"
+            >
+                <i class="fa-solid fa-hotel"></i>
+                Hotels
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="experience"
+            >
+                <i class="fa-solid fa-compass"></i>
+                Experiences
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="transport"
+            >
+                <i class="fa-solid fa-car"></i>
+                Transport
+            </button>
+
+            <button
+                class="filter-btn"
+                data-filter="restaurant"
+            >
+                <i class="fa-solid fa-utensils"></i>
+                Restaurants
+            </button>
+
+        </div>
+
+
+        <select
+            class="sort-select"
+            id="sortBookings"
+        >
+
+            <option value="recent">
+                Recent
+            </option>
+
+            <option value="date">
+                Travel Date
+            </option>
+
+            <option value="amount">
+                Amount: Low to High
+            </option>
+
+        </select>
+
+    </section>
+
+
+    <!-- =========================================
+         BOOKINGS
+    ========================================= -->
+
+    <section class="bookings-container" id="bookingsContainer">
+
+
+        <!-- =====================================
+             BOOKING 1
+        ====================================== -->
+
+        <article
+            class="booking-card"
+            data-type="hotel"
+            data-name="Taj Holiday Village Goa"
+            data-date="2026-11-15"
+            data-amount="8500"
+        >
+
+            <div class="booking-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=85"
+                    alt="Taj Holiday Village Goa"
+                >
+
+                <span class="booking-type">
+                    <i class="fa-solid fa-hotel"></i>
+                    Hotel
+                </span>
+
+            </div>
+
+
+            <div class="booking-details">
+
+                <div class="booking-header">
+
+                    <div>
+
+                        <span class="booking-id">
+                            BOOKING #YS10245
+                        </span>
+
+                        <h3>
+                            Taj Holiday Village Goa
+                        </h3>
+
+                    </div>
+
+                    <span class="status confirmed">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Confirmed
+                    </span>
+
+                </div>
+
+
+                <div class="booking-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Candolim, Goa
+
+                </div>
+
+
+                <div class="booking-info">
+
+                    <div>
+
+                        <span>Date</span>
+
+                        <strong>
+                            15 Nov 2026
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Duration</span>
+
+                        <strong>
+                            3 Nights
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Guests</span>
+
+                        <strong>
+                            2 Adults
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Amount</span>
+
+                        <strong>
+                            ₹8,500
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="booking-footer">
+
+                    <span class="payment-status">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Payment Completed
+                    </span>
+
+
+                    <div class="booking-actions">
+
+                        <button
+                            class="secondary-btn"
+                            onclick="viewBooking('YS10245')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            class="outline-btn"
+                            onclick="downloadTicket('YS10245')"
+                        >
+                            <i class="fa-solid fa-download"></i>
+                            Receipt
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================
+             BOOKING 2
+        ====================================== -->
+
+        <article
+            class="booking-card"
+            data-type="experience"
+            data-name="Goa Heritage Walk"
+            data-date="2026-11-16"
+            data-amount="1800"
+        >
+
+            <div class="booking-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=85"
+                    alt="Goa Heritage Walk"
+                >
+
+                <span class="booking-type">
+                    <i class="fa-solid fa-compass"></i>
+                    Experience
+                </span>
+
+            </div>
+
+
+            <div class="booking-details">
+
+                <div class="booking-header">
+
+                    <div>
+
+                        <span class="booking-id">
+                            BOOKING #YS10246
+                        </span>
+
+                        <h3>
+                            Goa Heritage Walk
+                        </h3>
+
+                    </div>
+
+                    <span class="status confirmed">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Confirmed
+                    </span>
+
+                </div>
+
+
+                <div class="booking-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Panjim, Goa
+
+                </div>
+
+
+                <div class="booking-info">
+
+                    <div>
+
+                        <span>Date</span>
+
+                        <strong>
+                            16 Nov 2026
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Duration</span>
+
+                        <strong>
+                            3 Hours
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Guests</span>
+
+                        <strong>
+                            2 People
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Amount</span>
+
+                        <strong>
+                            ₹1,800
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="booking-footer">
+
+                    <span class="payment-status">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Payment Completed
+                    </span>
+
+
+                    <div class="booking-actions">
+
+                        <button
+                            class="secondary-btn"
+                            onclick="viewBooking('YS10246')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            class="outline-btn"
+                            onclick="cancelBooking('YS10246')"
+                        >
+                            Cancel
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================
+             BOOKING 3
+        ====================================== -->
+
+        <article
+            class="booking-card"
+            data-type="transport"
+            data-name="Goa Airport Transfer"
+            data-date="2026-11-15"
+            data-amount="950"
+        >
+
+            <div class="booking-image transport-image">
+
+                <div class="transport-icon">
+                    <i class="fa-solid fa-car"></i>
+                </div>
+
+                <span class="booking-type">
+                    <i class="fa-solid fa-car"></i>
+                    Transport
+                </span>
+
+            </div>
+
+
+            <div class="booking-details">
+
+                <div class="booking-header">
+
+                    <div>
+
+                        <span class="booking-id">
+                            BOOKING #YS10247
+                        </span>
+
+                        <h3>
+                            Goa Airport Transfer
+                        </h3>
+
+                    </div>
+
+                    <span class="status confirmed">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Confirmed
+                    </span>
+
+                </div>
+
+
+                <div class="booking-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Goa International Airport → Candolim
+
+                </div>
+
+
+                <div class="booking-info">
+
+                    <div>
+
+                        <span>Date</span>
+
+                        <strong>
+                            15 Nov 2026
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Pickup</span>
+
+                        <strong>
+                            10:30 AM
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Vehicle</span>
+
+                        <strong>
+                            Sedan
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Amount</span>
+
+                        <strong>
+                            ₹950
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="booking-footer">
+
+                    <span class="payment-status">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Payment Completed
+                    </span>
+
+
+                    <div class="booking-actions">
+
+                        <button
+                            class="secondary-btn"
+                            onclick="viewBooking('YS10247')"
+                        >
+                            View Details
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================
+             BOOKING 4
+        ====================================== -->
+
+        <article
+            class="booking-card"
+            data-type="restaurant"
+            data-name="Gunpowder Goa"
+            data-date="2026-11-17"
+            data-amount="2200"
+        >
+
+            <div class="booking-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=900&q=85"
+                    alt="Restaurant"
+                >
+
+                <span class="booking-type">
+                    <i class="fa-solid fa-utensils"></i>
+                    Restaurant
+                </span>
+
+            </div>
+
+
+            <div class="booking-details">
+
+                <div class="booking-header">
+
+                    <div>
+
+                        <span class="booking-id">
+                            BOOKING #YS10248
+                        </span>
+
+                        <h3>
+                            Gunpowder Goa
+                        </h3>
+
+                    </div>
+
+                    <span class="status pending">
+                        <i class="fa-solid fa-clock"></i>
+                        Pending
+                    </span>
+
+                </div>
+
+
+                <div class="booking-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Assagao, Goa
+
+                </div>
+
+
+                <div class="booking-info">
+
+                    <div>
+
+                        <span>Date</span>
+
+                        <strong>
+                            17 Nov 2026
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Time</span>
+
+                        <strong>
+                            8:00 PM
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Guests</span>
+
+                        <strong>
+                            2 People
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Amount</span>
+
+                        <strong>
+                            ₹2,200
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="booking-footer">
+
+                    <span class="payment-status pending-payment">
+                        <i class="fa-solid fa-clock"></i>
+                        Payment Pending
+                    </span>
+
+
+                    <div class="booking-actions">
+
+                        <button
+                            class="secondary-btn"
+                            onclick="viewBooking('YS10248')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            class="pay-btn"
+                            onclick="makePayment('YS10248')"
+                        >
+                            Pay Now
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================
+             BOOKING 5
+        ====================================== -->
+
+        <article
+            class="booking-card"
+            data-type="hotel"
+            data-name="The Leela Palace Jaipur"
+            data-date="2026-08-12"
+            data-amount="9000"
+        >
+
+            <div class="booking-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=900&q=85"
+                    alt="Jaipur Hotel"
+                >
+
+                <span class="booking-type">
+                    <i class="fa-solid fa-hotel"></i>
+                    Hotel
+                </span>
+
+            </div>
+
+
+            <div class="booking-details">
+
+                <div class="booking-header">
+
+                    <div>
+
+                        <span class="booking-id">
+                            BOOKING #YS10198
+                        </span>
+
+                        <h3>
+                            The Leela Palace Jaipur
+                        </h3>
+
+                    </div>
+
+                    <span class="status completed">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Completed
+                    </span>
+
+                </div>
+
+
+                <div class="booking-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Jaipur, Rajasthan
+
+                </div>
+
+
+                <div class="booking-info">
+
+                    <div>
+
+                        <span>Date</span>
+
+                        <strong>
+                            12 Aug 2026
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Duration</span>
+
+                        <strong>
+                            2 Nights
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Guests</span>
+
+                        <strong>
+                            2 Adults
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Amount</span>
+
+                        <strong>
+                            ₹9,000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="booking-footer">
+
+                    <span class="payment-status">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Payment Completed
+                    </span>
+
+
+                    <div class="booking-actions">
+
+                        <button
+                            class="secondary-btn"
+                            onclick="viewBooking('YS10198')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            class="review-btn"
+                            onclick="writeReview('YS10198')"
+                        >
+                            <i class="fa-solid fa-star"></i>
+                            Review
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================
+             BOOKING 6
+        ====================================== -->
+
+        <article
+            class="booking-card"
+            data-type="experience"
+            data-name="Amber Fort Cultural Tour"
+            data-date="2026-08-14"
+            data-amount="5000"
+        >
+
+            <div class="booking-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=900&q=85"
+                    alt="Amber Fort"
+                >
+
+                <span class="booking-type">
+                    <i class="fa-solid fa-landmark"></i>
+                    Experience
+                </span>
+
+            </div>
+
+
+            <div class="booking-details">
+
+                <div class="booking-header">
+
+                    <div>
+
+                        <span class="booking-id">
+                            BOOKING #YS10199
+                        </span>
+
+                        <h3>
+                            Amber Fort Cultural Tour
+                        </h3>
+
+                    </div>
+
+                    <span class="status completed">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Completed
+                    </span>
+
+                </div>
+
+
+                <div class="booking-location">
+
+                    <i class="fa-solid fa-location-dot"></i>
+
+                    Amber, Jaipur
+
+                </div>
+
+
+                <div class="booking-info">
+
+                    <div>
+
+                        <span>Date</span>
+
+                        <strong>
+                            14 Aug 2026
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Duration</span>
+
+                        <strong>
+                            4 Hours
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Guests</span>
+
+                        <strong>
+                            2 People
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Amount</span>
+
+                        <strong>
+                            ₹5,000
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="booking-footer">
+
+                    <span class="payment-status">
+                        <i class="fa-solid fa-circle-check"></i>
+                        Payment Completed
+                    </span>
+
+
+                    <div class="booking-actions">
+
+                        <button
+                            class="secondary-btn"
+                            onclick="viewBooking('YS10199')"
+                        >
+                            View Details
+                        </button>
+
+                        <button
+                            class="review-btn"
+                            onclick="writeReview('YS10199')"
+                        >
+                            <i class="fa-solid fa-star"></i>
+                            Review
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- =========================================
+         EMPTY STATE
+    ========================================== -->
+
+    <section
+        class="empty-state"
+        id="emptyState"
+    >
+
+        <div class="empty-icon">
+
+            <i class="fa-regular fa-calendar-xmark"></i>
+
+        </div>
+
+        <h2>No bookings found</h2>
+
+        <p>
+            You don't have any bookings matching your search or filter.
+        </p>
+
+        <a href="../saved-destinations/saved-destinations.html" class="primary-btn">
+
+            <i class="fa-solid fa-compass"></i>
+
+            Explore Destinations
+
+        </a>
+
+    </section>
+
+
+    <!-- =========================================
+         AI TRAVEL ASSISTANT
+    ========================================== -->
+
+    <section class="ai-booking-banner">
+
+        <div class="ai-banner-icon">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+        </div>
+
+
+        <div class="ai-banner-content">
+
+            <span>YATRA AI</span>
+
+            <h2>
+                Need help managing your bookings?
+            </h2>
+
+            <p>
+                Ask Yatra AI to organize your bookings,
+                find alternatives or suggest experiences
+                around your current trip.
+            </p>
+
+        </div>
+
+
+        <button
+            class="ai-btn"
+            onclick="openAIChat()"
+        >
+
+            <i class="fa-solid fa-message"></i>
+
+            Ask Yatra AI
+
+        </button>
+
+    </section>
+
+</main>
+
+
+<!-- =========================================
+     BOOKING DETAILS MODAL
+========================================= -->
+
+<div
+    class="modal-overlay"
+    id="bookingModal"
+>
+
+    <div class="booking-modal">
+
+        <button
+            class="close-modal"
+            onclick="closeBookingModal()"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <div class="modal-icon">
+
+            <i class="fa-solid fa-calendar-check"></i>
+
+        </div>
+
+
+        <span class="modal-label">
+            BOOKING DETAILS
+        </span>
+
+        <h2 id="modalBookingTitle">
+            Booking Details
+        </h2>
+
+
+        <div class="modal-booking-id">
+            Booking ID:
+            <strong id="modalBookingId">
+                YS10245
+            </strong>
+        </div>
+
+
+        <div class="detail-list">
+
+            <div>
+                <span>Status</span>
+                <strong class="modal-confirmed">
+                    Confirmed
+                </strong>
+            </div>
+
+            <div>
+                <span>Destination</span>
+                <strong>
+                    Goa
+                </strong>
+            </div>
+
+            <div>
+                <span>Date</span>
+                <strong>
+                    15 Nov 2026
+                </strong>
+            </div>
+
+            <div>
+                <span>Payment</span>
+                <strong>
+                    Completed
+                </strong>
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-btn full-btn"
+            onclick="closeBookingModal()"
+        >
+            Done
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================
+     AI CHAT MODAL
+========================================= -->
+
+<div
+    class="modal-overlay"
+    id="aiChatModal"
+>
+
+    <div class="ai-chat-modal">
+
+        <button
+            class="close-modal"
+            onclick="closeAIChat()"
+        >
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+
+        <div class="modal-ai-icon">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+        </div>
+
+
+        <span class="modal-label">
+            YATRA AI
+        </span>
+
+        <h2>
+            Your Travel Assistant
+        </h2>
+
+
+        <div class="ai-message">
+
+            <div class="ai-message-icon">
+                AI
+            </div>
+
+            <p>
+                Hi! I can help you manage your bookings,
+                find better alternatives and organize your
+                travel plans.
+            </p>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+            <button onclick="aiAction('upcoming')">
+                Show upcoming bookings
+            </button>
+
+            <button onclick="aiAction('hotel')">
+                Find better hotels
+            </button>
+
+            <button onclick="aiAction('experience')">
+                Suggest experiences
+            </button>
+
+        </div>
+
+
+        <div
+            class="ai-response"
+            id="aiResponse"
+        >
+            Select an option above to ask Yatra AI.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- JavaScript -->
+<script src="bookings.js"></script>
+
+</body>
+</html>
